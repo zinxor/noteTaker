@@ -20,4 +20,4 @@ Features :
 - Directory
 
 Demo : A live demo can be seen here: https://notetaker-6e3e9.firebaseapp.com/
-Author : Desing and Code by Zeeshan Rasool . 2017
+Author : Design and Code by Zeeshan Rasool . 2017

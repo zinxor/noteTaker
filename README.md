@@ -23,4 +23,4 @@ Public folder contains all the app files including, HTML, CSS and JS.
 A live demo can be seen here: https://notetaker-6e3e9.firebaseapp.com/
 
 # Author
-Desing and Code by Zeeshan Rasool . 2017
+Design and Code by Zeeshan Rasool . 2017
