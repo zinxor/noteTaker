@@ -1,0 +1,23 @@
+
+noteTaker : A browser based note taking app.
+
+Overview : This application can run on local or remote server/browser, where browser localstorage is used as the database. It is made on a custom HTML and CSS framework with JS implementation. This is created in response to the technical exercise assigned by Skyrocket.
+
+How to run : 
+You can run the index.html file in any browser, update it on a hosting and access it through a domain, or simply access it on the demo link below.
+
+Features :
+- Add note
+- Update note
+- Delete note
+- Clear all notes
+- Assign username
+- Timestamp for notes
+- State change notifications
+- Empty state call to action
+- Responsive design
+- Single page app
+- Directory
+
+Demo : A live demo can be seen here: https://notetaker-6e3e9.firebaseapp.com/
+Author : Desing and Code by Zeeshan Rasool . 2017
