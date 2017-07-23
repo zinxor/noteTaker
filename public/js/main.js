@@ -15,6 +15,7 @@ var usrName = document.getElementById('user_name');
 var feedNote = document.getElementById('feed');
 
 var hmeBtn = document.getElementById('logo');
+var allBtn = document.getElementById('all_btn');
 var nteBtn = document.getElementById('new_btn');
 var usrBtn = document.getElementById('usr_btn');
 var empBtn = document.getElementById('add_empty');
@@ -71,6 +72,9 @@ usrBtn.onclick = function () {
 hmeBtn.onclick = function () {
 	homeView();
 };
+allBtn.onclick = function () {
+	homeView();
+};
 ntiBtn.onclick = function () {
 	$(this).hide();
 };
@@ -104,7 +108,7 @@ $("#add-user").on('submit', function (e) {
 
 $(document).on('tap click', "#clr_strg", function () {
 
-	if (confirm('Are you sure you want to delete all of your notes? You crazy yo!')) {
+	if (confirm('Are you sure you want to delete/clear all of your notes?')) {
 		// Remove note.
 		clearFeed();
 		homeView();

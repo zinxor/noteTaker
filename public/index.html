@@ -45,9 +45,10 @@ Coded by Zeeshan Rasool for Skyrocket
 
 <menu>
   <div class="nav-wrp">
-    <button class="nav-btn blu" id="new_btn">add note</button>
+    <button class="nav-btn" id="all_btn">my notes</button>
+    <button class="nav-btn" id="new_btn">add note</button>
     <button class="nav-btn" id="usr_btn">user</button>
-    <button class="nav-btn hde" id="clr_strg">clear</button>
+    <button class="nav-btn hde" id="clr_strg">clear all</button>
   </div>
 </menu>
 
@@ -71,7 +72,7 @@ Coded by Zeeshan Rasool for Skyrocket
 <!-- Feed notes -->
 
 <section id="feed">
-  <h1>Notes</h1>
+  <h1>My notes</h1>
   <div class="posts-container" id="notes_feed"> 
   </div>
 </section>
@@ -100,7 +101,7 @@ Coded by Zeeshan Rasool for Skyrocket
       <textarea class="add-txt" rows="10" type="text" name="edit-note" id="edit_note" placeholder="Note it down..."></textarea>
     </div>
     <div class="btn-wrp wd">
-      <button class="min-btn blu" id="upd_note_btn">UPDATE</button>
+      <button class="min-btn blu" id="upd_note_btn">SAVE</button>
       <div class="min-btn" id="del_note_btn">DELETE</div>
       <div class="node-id-edt"></div>
     </div>
@@ -110,14 +111,14 @@ Coded by Zeeshan Rasool for Skyrocket
 <!-- Edit user -->
 
 <section id="user">
-  <h1>User</h1>
+  <h1>User name</h1>
   <div class="note-wrp">
     <form id="add-user" action="#">
       <div class="txt-wrp wd">
         <input class="add-txt" type="text" id="user_name" placeholder="Username...">
       </div>
       <div class="btn-wrp wd">
-        <button class="min-btn blu" id="upd_user_btn">UPDATE</button>
+        <button class="min-btn blu" id="upd_user_btn">SAVE</button>
       </div>
     </form>
   </div>
