@@ -2,7 +2,7 @@
 
 <!--
 Coded by Zeeshan Rasool for Skyrocket
-22.07.17
+23.07.17
 -->
 
 <html lang="en-US">
@@ -35,38 +35,71 @@ Coded by Zeeshan Rasool for Skyrocket
 <header>
   <div class="head-wrp">
     <div class="lgo-wrp">
-      <div class="lgo" id="logo">NOTE TAKER</div>
+      <div class="lgo" id="logo"><img src="img/logo_notetaker.svg" alt="note taker logo"></div>
       <div class="tglne"></div>
+      
+     <!-- Navigation -->
+
+     <div class="nav-wrp">
+    <button class="nav-btn" id="all_btn">my notes</button>
+    <button class="nav-btn bdr-blk shd" id="new_btn">add note</button>
+  </div>
+      
+      
     </div>
   </div>
 </header>
 
-<!-- Navigation -->
 
-<menu>
-  <div class="nav-wrp">
-    <button class="nav-btn" id="all_btn">my notes</button>
-    <button class="nav-btn" id="new_btn">add note</button>
-    <button class="nav-btn" id="usr_btn">user</button>
-    <button class="nav-btn hde" id="clr_strg">clear all</button>
-  </div>
-</menu>
+<!-- main cta / dective -->
+
+	<div class="cta-btn shd hde">ADD NOTE</div>
+
 
 <!-- Notifications -->
 <div class="noti" id="noti">...</div>
 
 <!-- Empty state -->
 
-<section id="empty">
-  <h2>Welcome to <em>Note Taker</em>. This is a simple note taking app that runs on your browser. You can add, update and delete a note. </h2>
-  <div class="sec-wrp"> <img src="img/empty.png" width="100px" alt="empty notes">
+<section class="txt-cntr" id="empty">
+ <img src="img/icon_notetaker.svg" width="100px" alt="empty notes">
+  <h2 id="ob_ttl">Welcome to Note Taker. This is a simple note taking app that runs on your browser. You can add, update and delete a note. </h2>
+  
+   
+   <div class="sec-wrp">
+    
+    
+    <!-- new user -->
+    <div id="new_usr"> 
     <div class="txt-wrp wd">
-      <div class="note-txt">Let's get started?</div>
+      <div class="note-txt">Please enter your name below to get started.</div>
     </div>
+    
+      <form id="new-user" action="#">
+      <div class="txt-wrp wd">
+        <input class="add-txt shd" type="text" id="user_name_new" placeholder="Your name goes here...">
+      </div>
+      
     <div class="btn-wrp wd">
-      <div class="min-btn blu flt-lft" id="add_empty">ADD NOTE</div>
+      <button class="min-btn" id="add_usr">NEXT</button>
     </div>
+    
+    </form>
+	  </div>
+	  
+	<!-- User name added -->
+	 <div class="hde" id="old_usr"> 
+	<div class="txt-wrp wd">
+      <div class="note-txt" id="ob_usr">Let's get started with your first note.</div>
+    </div>
+	 
+	 <div class="btn-wrp wd">
+      <button class="min-btn" id="add_empty">ADD NOTE</button>
+    </div>
+	  </div>
+	  
   </div>
+  
 </section>
 
 <!-- Feed notes -->
@@ -81,12 +114,12 @@ Coded by Zeeshan Rasool for Skyrocket
 
 <section id="new">
   <h1>Add note</h1>
-  <div class="note-wrp">
+  <div class="note-wrp shd">
     <div class="txt-wrp wd">
-      <textarea class="add-txt" rows="10" type="text" name="new-note" id="add_note" placeholder="Note it down..."></textarea>
+      <textarea class="add-txt txt-lft" rows="10" type="text" name="new-note" id="add_note" placeholder="Note it down..."></textarea>
     </div>
     <div class="btn-wrp wd">
-      <button class="min-btn blu" id="add_note_btn">ADD</button>
+      <button class="min-btn flt-rgt" id="add_note_btn">ADD</button>
     </div>
   </div>
 </section>
@@ -95,14 +128,14 @@ Coded by Zeeshan Rasool for Skyrocket
 
 <section id="edit">
   <h1>Edit note</h1>
-  <div class="note-wrp">
+  <div class="note-wrp shd">
     <div class="txt-wrp wd">
       <div class="note-stmp" id="edit_stmp">...</div>
-      <textarea class="add-txt" rows="10" type="text" name="edit-note" id="edit_note" placeholder="Note it down..."></textarea>
+      <textarea class="add-txt txt-lft" rows="10" type="text" name="edit-note" id="edit_note" placeholder="Note it down..."></textarea>
     </div>
     <div class="btn-wrp wd">
-      <button class="min-btn blu" id="upd_note_btn">SAVE</button>
-      <div class="min-btn" id="del_note_btn">DELETE</div>
+      <button class="min-btn flt-rgt" id="upd_note_btn">SAVE</button>
+      <div class="min-btn flt-rgt bckg-non" id="del_note_btn">DELETE</div>
       <div class="node-id-edt"></div>
     </div>
   </div>
@@ -112,21 +145,36 @@ Coded by Zeeshan Rasool for Skyrocket
 
 <section id="user">
   <h1>User name</h1>
-  <div class="note-wrp">
+  <div class="note-wrp shd">
     <form id="add-user" action="#">
       <div class="txt-wrp wd">
-        <input class="add-txt" type="text" id="user_name" placeholder="Username...">
+        <input class="add-txt txt-lft" type="text" id="user_name" placeholder="Username...">
       </div>
       <div class="btn-wrp wd">
-        <button class="min-btn blu" id="upd_user_btn">SAVE</button>
+        <button class="min-btn flt-rgt" id="upd_user_btn">SAVE</button>
       </div>
     </form>
   </div>
+  
+  <h1>Reset notes</h1>
+  
+  <div class="note-wrp shd">
+   <div class="btn-wrp wd">
+  <div class="il-txt">
+  You can delete all your notes here.
+	  </div>
+  <button class="nav-btn nav-btn bdr-blk flt-rgt" id="clr_strg">clear all</button>
+	  </div>
+  </div>
+	
 </section>
 
 <!-- Footer -->
 
-<footer> Zeeshan Rasool . 2017</footer>
+<footer class="foot">
+	Zeeshan Rasool / Skyrocket . 2017<br><br>
+	<div id="usr_btn">Settings</div>
+</footer>
 </body>
 <script src="js/main.js" type="text/javascript"></script>
 </html>
