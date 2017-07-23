@@ -46,7 +46,8 @@ $(document).ready(function () {
 	if (storedNotes) {
 		if (storedNotes.length > 0) {
 			getNote(storedNotes); // Populate notes list.
-			$("#feed, .foot").fadeIn();
+			$("#feed").fadeIn();
+			$(".foot").css('display','inline-block');
 		} else {
 			$("#empty").fadeIn(); // Empty state view	
 		}
@@ -431,14 +432,15 @@ function homeView() {
 	var anyNotes = JSON.parse(localStorage.getItem("notesX")); // existing notes
 	var anyUser = localStorage.getItem("userX"); // existing user
 	
-	if (anyUser) { $("#new_usr").hide(); $("#old_usr, .foot").fadeIn(); 
+	if (anyUser) { $("#new_usr").hide(); $("#old_usr").fadeIn(); $(".foot").css('display','inline-block');
 				   $("#ob_ttl").text('It looks a little empty in here. Why not make this space more thoughtful?');
 				 }
 	
 	if (anyNotes) {
 		if (anyNotes.length > 0) {
 			$("section").hide();
-			$("#feed, .foot").fadeIn();
+			$("#feed").fadeIn(); 
+			$(".foot").css('display','inline-block');
 		} else {
 			$("section").hide();
 			$("#empty").fadeIn();
