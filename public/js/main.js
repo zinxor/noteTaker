@@ -1,6 +1,6 @@
 /*
 // Coded by Zeeshan Rasool for Skyrocket
-// 22.07.17
+// 23.07.17
 */
 
 
@@ -11,6 +11,7 @@ console.log("NOTE TAKER by ZR");
 var addNote = document.getElementById('add_note');
 var updNote = document.getElementById('edit_note');
 var usrName = document.getElementById('user_name');
+var usrNew = document.getElementById('user_name_new');
 
 var feedNote = document.getElementById('feed');
 
@@ -36,12 +37,16 @@ $(document).ready(function () {
 	}
 
 	var storedNotes = JSON.parse(localStorage.getItem("notesX"));
+	var storedName = localStorage.getItem("userX");
+	
+	if(storedName){ homeView(); }
+	
 	updateTagline(); // Update tagline.
 
 	if (storedNotes) {
 		if (storedNotes.length > 0) {
 			getNote(storedNotes); // Populate notes list.
-			$("#feed").fadeIn();
+			$("#feed, .foot").fadeIn();
 		} else {
 			$("#empty").fadeIn(); // Empty state view	
 		}
@@ -79,6 +84,30 @@ ntiBtn.onclick = function () {
 	$(this).hide();
 };
 
+
+
+// CREATE USER
+
+$("#new-user").on('submit', function (e) {
+	e.preventDefault();
+
+	// content check
+	if (usrNew.value.length < 1) {
+		alert("That's too short of a name. Maybe add atleast one character?");
+		return;
+	}
+
+	// clear
+	var name = usrNew.value;
+	localStorage.setItem("userX", name);
+	var storedUser = localStorage.getItem("userX");
+	console.log('user name created');
+	//showNoti('User '+name+' has been created.');
+	updateTagline();
+	homeView();
+	
+	
+});
 
 // UPDATE USER
 
@@ -152,7 +181,7 @@ $(document).on('tap click', "#add_note_btn", function () {
 });
 
 // EDIT NOTE
-// Update and Delete
+// Update note
 
 $(document).on('tap click', "#upd_note_btn", function () {
 
@@ -207,16 +236,16 @@ $(document).on('tap click', "#del_note_btn", function () {
 
 // EDIT STORAGE
 
-$(document).on('tap click', ".edit_note", function () {
+$(document).on('tap click', ".edt-nte", function () {
 
 	$("section").hide();
 	$("#edit").fadeIn();
 
-	node = parseFloat($(this).parent().find(".node-id").text());
+	node = parseFloat($(this).find(".node-id").text());
 	var storedNotes = JSON.parse(localStorage.getItem("notesX"));
 
 	$("#edit_note").val(storedNotes[node].note);
-	$("#edit_stmp").text(storedNotes[node].user);
+	$("#edit_stmp").text('Author: '+storedNotes[node].user);
 	$(".node-id-edt").text(node);	
 });
 
@@ -256,23 +285,24 @@ function getNote(notesList) {
 }
 
 // HTML for feed notes
+
 function createNote(user, note, time, id, node) {
 
 	var ntxt = note.replace(/\n/g, "<br />");
 	var tme = getTime(time);
 
-	var html = '<div class="content-wrp">' +
-
-		'<div class="note-wrp" id="' + id + '">' +
+	var html = '<div class="content-wrp edt-nte">' +
+			   '<div class="node-id">' + node + '</div>' +
+		
+		'<div class="note-wrp fd-nte shd" id="' + id + '">' +
 		'<div class="txt-wrp wd">' +
 		'<p class="note-txt">' + ntxt + '</p>' +
-		'<div class="note-stmp">' + user + ' ~ ' + tme +
+		'<div class="note-stmp">Author : ' + user + '<br>' + tme +
 		'</div>' +
 
-		'<div class="btn-wrp wd">' +
-		'<div class="min-btn blu edit_note">EDIT</div>' +
-		'<div class="node-id">' + node + '</div>' +
-		'</div>' +
+		//'<div class="btn-wrp wd">' +
+		//'<div class="min-btn blu edit_note">EDIT</div>' +
+		//'</div>' +
 
 		'</div>' +
 
@@ -399,20 +429,24 @@ function updateTagline() {
 function homeView() {
 	updateTagline();
 	var anyNotes = JSON.parse(localStorage.getItem("notesX")); // existing notes
+	var anyUser = localStorage.getItem("userX"); // existing user
+	
+	if (anyUser) { $("#new_usr").hide(); $("#old_usr, .foot").fadeIn(); 
+				   $("#ob_ttl").text('It looks a little empty in here. Why not make this space more thoughtful?');
+				 }
+	
 	if (anyNotes) {
 		if (anyNotes.length > 0) {
 			$("section").hide();
-			$("#feed").fadeIn();
+			$("#feed, .foot").fadeIn();
 		} else {
 			$("section").hide();
 			$("#empty").fadeIn();
-			$('#clr_strg').hide();
 		}
 
 	} else {
 		$("section").hide();
 		$("#empty").fadeIn();
-		$('#clr_strg').hide();
 	}
 
 }
@@ -425,4 +459,14 @@ function showNoti(text) {
 	setTimeout(function () {
 		$(".noti").hide();
 	}, 3000);
+}
+
+
+// Responsive elements
+
+if ($(window).width() < 600) { 
+
+$("#logo").html('<img src="img/icon_notetaker.svg" alt="note taker icon">');	
+$(".lgo").css('width','36px');	
+	
 }
